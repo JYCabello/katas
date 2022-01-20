@@ -19,7 +19,8 @@ public class TennisScoreCalculatorShould {
 
 	private static Stream<Arguments> matchGenerator() {
 		return Stream.of(
-				Arguments.of(0, 0,"love - love")
+				Arguments.of(0, 0,"love - love"),
+				Arguments.of(0, 1,"love - fifteen")
 		);
 	}
 }
