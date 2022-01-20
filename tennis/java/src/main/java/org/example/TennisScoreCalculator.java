@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 
 public class TennisScoreCalculator {
 	public String score(int player1Score, int player2Score) {
-
 		if (player1Score == player2Score && player1Score <= 3)
 			return getDeuce(player1Score);
 
@@ -20,11 +19,25 @@ public class TennisScoreCalculator {
 		if (wonOver(player2Score, player1Score))
 			return "player 2 wins";
 
+		if (advantageOver(player1Score, player2Score))
+			return "player 1 advantage";
+
+		if (advantageOver(player2Score, player1Score))
+			return "player 2 advantage";
+
 		return null;
 	}
 
+	private boolean advantageOver(int scoreA, int scoreB) {
+		boolean is1OverThreshold = scoreA > 3;
+		int diff1To2 = scoreA - scoreB;
+		return is1OverThreshold && diff1To2 == 1;
+	}
+
 	private boolean wonOver(int scoreA, int scoreB) {
-		return scoreA > Math.max(3, scoreB);
+		boolean isOverThreshold = scoreA > 3;
+		int diff = scoreA - scoreB;
+		return isOverThreshold && diff > 1;
 	}
 
 	private static String getDeuce(int score) {

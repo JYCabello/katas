@@ -26,7 +26,9 @@ public class TennisScoreCalculatorShould {
 				Arguments.of(0, 3,"love - forty"),
 				Arguments.of(1, 3,"fifteen - forty"),
 				Arguments.of(5, 0, "player 1 wins"),
-				Arguments.of(5, 7, "player 2 wins")
+				Arguments.of(5, 7, "player 2 wins"),
+				Arguments.of(7, 6, "player 1 advantage"),
+				Arguments.of(6, 7, "player 2 advantage")
 		);
 	}
 }
