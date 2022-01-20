@@ -14,13 +14,17 @@ public class TennisScoreCalculator {
 		if (player2Score <= 3 && player1Score <= 3)
 			return getScoreDiff(player1Score, player2Score);
 
-		if (player1Score > Math.max(3, player2Score))
+		if (wonOver(player1Score, player2Score))
 			return "player 1 wins";
 
-		if (player2Score > Math.max(3, player1Score))
+		if (wonOver(player2Score, player1Score))
 			return "player 2 wins";
 
 		return null;
+	}
+
+	private boolean wonOver(int scoreA, int scoreB) {
+		return scoreA > Math.max(3, scoreB);
 	}
 
 	private static String getDeuce(int score) {
