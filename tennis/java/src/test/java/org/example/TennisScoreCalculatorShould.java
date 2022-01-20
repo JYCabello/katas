@@ -17,14 +17,14 @@ public class TennisScoreCalculatorShould {
 
 	private static Stream<Arguments> matchGenerator() {
 		return Stream.of(
-				Arguments.of(0, 0,"love - all"),
-				Arguments.of(0, 1,"love - fifteen"),
-				Arguments.of(1, 1,"fifteen - all"),
-				Arguments.of(2, 2,"thirty - all"),
-				Arguments.of(3, 3,"deuce"),
-				Arguments.of(0, 2,"love - thirty"),
-				Arguments.of(0, 3,"love - forty"),
-				Arguments.of(1, 3,"fifteen - forty"),
+				Arguments.of(0, 0, "love - all"),
+				Arguments.of(0, 1, "love - fifteen"),
+				Arguments.of(1, 1, "fifteen - all"),
+				Arguments.of(2, 2, "thirty - all"),
+				Arguments.of(3, 3, "deuce"),
+				Arguments.of(0, 2, "love - thirty"),
+				Arguments.of(0, 3, "love - forty"),
+				Arguments.of(1, 3, "fifteen - forty"),
 				Arguments.of(5, 0, "player 1 wins"),
 				Arguments.of(5, 7, "player 2 wins"),
 				Arguments.of(7, 6, "player 1 advantage"),
