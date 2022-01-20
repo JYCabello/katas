@@ -11,8 +11,14 @@ public class TennisScoreCalculator {
 		if (player1Score == player2Score && player1Score <= 3)
 			return getDeuce(player1Score);
 
-		if (player2Score <= 3)
+		if (player2Score <= 3 && player1Score <= 3)
 			return getScoreDiff(player1Score, player2Score);
+
+		if (player1Score > Math.max(3, player2Score))
+			return "player 1 wins";
+
+		if (player2Score > Math.max(3, player1Score))
+			return "player 2 wins";
 
 		return null;
 	}
@@ -22,7 +28,7 @@ public class TennisScoreCalculator {
 	}
 
 	private static String getScoreDiff(int scoreA, int scoreB) {
-		return "love - " + scores.get(scoreB);
+		return scores.get(scoreA) + " - " + scores.get(scoreB);
 	}
 
 	private static final Map<Integer, String> scores = Stream.of(
