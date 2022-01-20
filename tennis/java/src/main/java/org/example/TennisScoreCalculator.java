@@ -25,7 +25,7 @@ public class TennisScoreCalculator {
 	}
 
 	private Result calculateResult(int player1Score, int player2Score) {
-		if (player1Score == player2Score && player1Score <= 3)
+		if (player1Score == player2Score)
 			return Result.Deuce;
 
 		if (player2Score <= 3 && player1Score <= 3)
@@ -68,7 +68,7 @@ public class TennisScoreCalculator {
 	}
 
 	private static String getDeuce(int score) {
-		return score == 3 ? "deuce" : scores.get(score) + " - all";
+		return score >= 3 ? "deuce" : scores.get(score) + " - all";
 	}
 
 	private static String getScoreDiff(int scoreA, int scoreB) {
