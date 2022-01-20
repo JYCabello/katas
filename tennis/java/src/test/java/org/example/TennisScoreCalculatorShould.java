@@ -15,12 +15,11 @@ public class TennisScoreCalculatorShould {
 		assertEquals(expected, new TennisScoreCalculator().score(player1Score, player2Score));
 	}
 
-
-
 	private static Stream<Arguments> matchGenerator() {
 		return Stream.of(
-				Arguments.of(0, 0,"love - love"),
-				Arguments.of(0, 1,"love - fifteen")
+				Arguments.of(0, 0,"love - all"),
+				Arguments.of(0, 1,"love - fifteen"),
+				Arguments.of(1, 1,"fifteen - all")
 		);
 	}
 }
