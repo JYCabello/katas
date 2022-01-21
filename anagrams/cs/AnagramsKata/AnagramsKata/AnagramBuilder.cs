@@ -5,12 +5,8 @@ public class AnagramBuilder
     public IEnumerable<string> Get(string word)
     {
         var result = new List<string>();
-        if (word.Length == 0)
-            return result;
-        result.Add(word);
-        if (word.Length == 2)
-            result.Add($"{word[1]}{word[0]}");
-        for (var i = 0; i < word.Length - 1; i++)
+
+        for (var i = 0; i < word.Length; i++)
         {
             var character = word[i];
             var subPalindromes = Get(WithoutChar(word, i));
@@ -18,9 +14,16 @@ public class AnagramBuilder
                 result.Add($"{character}{subPalindrome}");
         }
 
+        if (word.Length == 1)
+            result.Add(word);
+
         return result;
 
-        static string WithoutChar(string s, int index) =>
-            "";
+        static string WithoutChar(string s, int index)
+        {
+            var pre = s.Substring(0, index);
+            var post = s.Length < index + 1 ? "" : s.Substring(index + 1);
+            return $"{pre}{post}";
+        }
     }
 }
