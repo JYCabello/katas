@@ -78,4 +78,15 @@ public class AnagramBuilderShould
         var threeLettersResult = builder.Get($"{a}{b}{c}").ToList();
         Assert.All(threeLettersResult, tlr => Assert.Contains(result, r => tlr == r.Substring(0, 3)));
     }
+
+    [Property(DisplayName = "returns the anagrams for any five letters")]
+    public void AnyFiveLetters(char a, char b, char c, char d, char e)
+    {
+        var builder = new AnagramBuilder();
+
+        var result = builder.Get($"{a}{b}{c}{d}{e}").ToList();
+        Assert.Equal(120, result.Count);
+        var fourLetterResult = builder.Get($"{a}{b}{c}{d}").ToList();
+        Assert.All(fourLetterResult, flr => Assert.Contains(result, r => flr == r.Substring(0, 4)));
+    }
 }
