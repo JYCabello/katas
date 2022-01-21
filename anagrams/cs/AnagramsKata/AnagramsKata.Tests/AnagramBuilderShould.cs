@@ -46,4 +46,25 @@ public class AnagramBuilderShould
 
         Assert.Equal(expectation, result);
     }
+
+    [Property(DisplayName = "returns the anagrams for any three letters")]
+    public void AnyThreeLetters(char a, char b, char c)
+    {
+        var builder = new AnagramBuilder();
+
+        var result = builder.Get($"{a}{b}{c}").ToList();
+        result.Sort();
+        var expectation = new List<string>
+        {
+            $"{a}{b}{c}",
+            $"{a}{c}{b}",
+            $"{b}{a}{c}",
+            $"{b}{c}{a}",
+            $"{c}{a}{b}",
+            $"{c}{b}{a}"
+        };
+        expectation.Sort();
+
+        Assert.Equal(expectation, result);
+    }
 }
