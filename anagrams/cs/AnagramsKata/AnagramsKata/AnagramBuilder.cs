@@ -1,6 +1,6 @@
 ﻿namespace AnagramsKata;
 
-public class AnagagramBuilder
+public class AnagramBuilder
 {
     public IEnumerable<string> Get(string word)
     {
