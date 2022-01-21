@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramsKata", "AnagramsKata\AnagramsKata.csproj", "{54D37D9E-1C5F-46E2-9A83-DE47910166AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnagramsKata.Tests", "AnagramsKata.Tests\AnagramsKata.Tests.csproj", "{3514EC90-86A0-4B87-81F1-D6217FB6F9BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54D37D9E-1C5F-46E2-9A83-DE47910166AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D37D9E-1C5F-46E2-9A83-DE47910166AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D37D9E-1C5F-46E2-9A83-DE47910166AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D37D9E-1C5F-46E2-9A83-DE47910166AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3514EC90-86A0-4B87-81F1-D6217FB6F9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3514EC90-86A0-4B87-81F1-D6217FB6F9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3514EC90-86A0-4B87-81F1-D6217FB6F9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3514EC90-86A0-4B87-81F1-D6217FB6F9BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
