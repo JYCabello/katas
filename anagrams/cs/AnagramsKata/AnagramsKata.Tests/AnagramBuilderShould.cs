@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using FsCheck.Xunit;
 using Xunit;
 
@@ -26,8 +27,10 @@ public class AnagramBuilderShould
     public void AB()
     {
         var builder = new AnagramBuilder();
-        var result = builder.Get("AB");
+        var result = builder.Get("AB").ToList();
+        result.Sort();
         var expectation = new List<string> { "AB", "BA" };
+        expectation.Sort();
         Assert.Equal(expectation, result);
     }
 }
