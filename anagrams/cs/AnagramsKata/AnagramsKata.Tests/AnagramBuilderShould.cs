@@ -33,4 +33,17 @@ public class AnagramBuilderShould
         expectation.Sort();
         Assert.Equal(expectation, result);
     }
+
+    [Property(DisplayName = "return the word and the inverse for any two letters")]
+    public void AnyTwoLetters(char a, char b)
+    {
+        var builder = new AnagramBuilder();
+
+        var result = builder.Get($"{a}{b}").ToList();
+        result.Sort();
+        var expectation = new List<string> { $"{a}{b}", $"{b}{a}" };
+        expectation.Sort();
+
+        Assert.Equal(expectation, result);
+    }
 }
