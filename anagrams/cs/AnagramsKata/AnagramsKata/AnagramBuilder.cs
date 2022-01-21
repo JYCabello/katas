@@ -4,10 +4,12 @@ public class AnagramBuilder
 {
     public IEnumerable<string> Get(string word)
     {
+        var result = new List<string>();
+        if (word.Length == 0)
+            return result;
+        result.Add(word);
         if (word.Length == 2)
-            return new List<string> { word, $"{word[1]}{word[0]}" };
-        if (word == "")
-            return new List<string>();
-        return new List<string> { word };
+            result.Add($"{word[1]}{word[0]}");
+        return result;
     }
 }
