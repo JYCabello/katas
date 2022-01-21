@@ -1,6 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\yeray\AppData\Local\JetBrains\Rider2021.3\resharper-host\temp\Rider\vAny\CoverageData\_AnagramsKata.1854067730\Snapshot\snapshot.utdcvr</s:String>
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b0157b0a_002D8b61_002D4ab3_002D9941_002Dee157b526169/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="3" IsActive="True" Name="AnagramBuilderShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b0157b0a_002D8b61_002D4ab3_002D9941_002Dee157b526169/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="3" IsActive="True" Name="AnagramBuilderShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::3514EC90-86A0-4B87-81F1-D6217FB6F9BE::net6.0::AnagramsKata.Tests.AnagramBuilderShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;

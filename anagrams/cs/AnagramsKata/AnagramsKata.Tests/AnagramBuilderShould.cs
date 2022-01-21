@@ -67,4 +67,15 @@ public class AnagramBuilderShould
 
         Assert.Equal(expectation, result);
     }
+
+    [Property(DisplayName = "returns the anagrams for any four letters")]
+    public void AnyFourLetters(char a, char b, char c, char d)
+    {
+        var builder = new AnagramBuilder();
+
+        var result = builder.Get($"{a}{b}{c}{d}").ToList();
+        Assert.Equal(24, result.Count);
+        var threeLettersResult = builder.Get($"{a}{b}{c}").ToList();
+        Assert.All(threeLettersResult, tlr => Assert.Contains(result, r => tlr == r.Substring(0, 3)));
+    }
 }
