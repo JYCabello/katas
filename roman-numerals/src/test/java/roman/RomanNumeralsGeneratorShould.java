@@ -23,7 +23,8 @@ public class RomanNumeralsGeneratorShould {
 				Arguments.of(7, "VII"),
 				Arguments.of(10, "X"),
 				Arguments.of(12, "XII"),
-				Arguments.of(16, "XVI")
+				Arguments.of(16, "XVI"),
+				Arguments.of(19, "XIX")
 		);
 	}
 }
