@@ -14,4 +14,15 @@ public class WorldShould
         world.NextState();
         Assert.False(world.GetBoard()[0][0]);
     }
+
+    [Fact(DisplayName = "kill a single cell in a row")]
+    public void Test2()
+    {
+        var world = new World(new []
+        {
+            new [] { true, true }
+        });
+        world.NextState();
+        Assert.False(world.GetBoard()[0][1]);
+    }
 }
