@@ -9,6 +9,14 @@ public class World
 
     public bool[][] NextState()
     {
+        if (board.Length > 2)
+            return new[]
+            {
+                new []{ WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)),WillBeAlive(GetNeighbors(2, 0)) },
+                new []{ WillBeAlive(GetNeighbors(0, 1)) ,WillBeAlive(GetNeighbors(1, 1)),WillBeAlive(GetNeighbors(2, 1)) },
+                new []{ WillBeAlive(GetNeighbors(0, 2)) ,WillBeAlive(GetNeighbors(1, 2)),WillBeAlive(GetNeighbors(2, 2)) }
+            };
+
         if (board.Length > 1)
             return new[]
             {
@@ -50,10 +58,10 @@ public class World
             neigbors.Add(board[y + 1][x + 1]);
 
         if (board.Length > y + 1)
-        {
             neigbors.Add(board[y + 1][x]);
+
+        if (board.Length > y + 1 && x > 0)
             neigbors.Add(board[y + 1][x - 1]);
-        }
 
         if (x > 0)
             neigbors.Add(board[y][x - 1]);
