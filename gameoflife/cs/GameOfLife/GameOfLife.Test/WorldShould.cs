@@ -48,4 +48,15 @@ public class WorldShould
         Assert.True(result[0][1]);
     }
 
+    [Fact(DisplayName = "kill an isolated cell in a longer row with a dead neighbor")]
+    public void Test5()
+    {
+        var world = new World(new []
+        {
+            new [] { true, true, false }
+        });
+        var result = world.NextState();
+        Assert.False(result[0][1]);
+    }
+
 }
