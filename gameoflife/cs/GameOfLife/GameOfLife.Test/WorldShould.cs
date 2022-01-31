@@ -95,4 +95,17 @@ public class WorldShould
         Assert.False(result[1][1]);
     }
 
+    [Fact(DisplayName = "kills an overpopulated cell in a second row counting on the third")]
+    public void Test9()
+    {
+        var world = new World(new []
+        {
+            new [] { false, false, false },
+            new [] { true, true, false },
+            new [] { true, true, true }
+        });
+        var result = world.NextState();
+        Assert.False(result[1][1]);
+    }
+
 }
