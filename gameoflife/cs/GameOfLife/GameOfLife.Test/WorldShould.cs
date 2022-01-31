@@ -15,4 +15,15 @@ public class WorldShould
         Assert.False(result[0][0]);
     }
 
+    [Fact(DisplayName = "kill an isolated cell")]
+    public void Test2()
+    {
+        var world = new World(new []
+        {
+            new [] { true, true }
+        });
+        var result = world.NextState();
+        Assert.False(result[0][1]);
+    }
+
 }
