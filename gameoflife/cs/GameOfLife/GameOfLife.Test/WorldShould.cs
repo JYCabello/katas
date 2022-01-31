@@ -59,4 +59,16 @@ public class WorldShould
         Assert.False(result[0][1]);
     }
 
+    [Fact(DisplayName = "kill an isolated cell in a second row with no living neighbors")]
+    public void Test6()
+    {
+        var world = new World(new []
+        {
+            new [] { false, false, false },
+            new [] { false, true, false }
+        });
+        var result = world.NextState();
+        Assert.False(result[1][1]);
+    }
+
 }
