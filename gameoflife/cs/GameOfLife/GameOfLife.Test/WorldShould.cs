@@ -26,4 +26,15 @@ public class WorldShould
         Assert.False(result[0][1]);
     }
 
+    [Fact(DisplayName = "kill an isolated cell in a longer row")]
+    public void Test3()
+    {
+        var world = new World(new []
+        {
+            new [] { false, true, false }
+        });
+        var result = world.NextState();
+        Assert.False(result[0][1]);
+    }
+
 }
