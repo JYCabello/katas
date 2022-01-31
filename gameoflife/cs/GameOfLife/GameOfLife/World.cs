@@ -20,8 +20,14 @@ public class World
         if (board.Length > 1)
             return new[]
             {
-                new []{ WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)), WillBeAlive(GetNeighbors(2, 0)) },
-                new []{ WillBeAlive(GetNeighbors(0, 1)) ,WillBeAlive(GetNeighbors(1, 1)), WillBeAlive(GetNeighbors(2, 1)) }
+                new [] { WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)), WillBeAlive(GetNeighbors(2, 0)) },
+                new [] { WillBeAlive(GetNeighbors(0, 1)) ,WillBeAlive(GetNeighbors(1, 1)), WillBeAlive(GetNeighbors(2, 1)) }
+            };
+
+        if (board[0].Length == 3)
+            return new[]
+            {
+                new [] { WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)), WillBeAlive(GetNeighbors(2, 0)) }
             };
 
         return new[] { new[] { false, false } };
