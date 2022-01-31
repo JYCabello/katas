@@ -121,4 +121,30 @@ public class WorldShould
         Assert.False(result[2][1]);
     }
 
+    [Fact(DisplayName = "reproduces with exactly three living neighbors")]
+    public void Test11()
+    {
+        var world = new World(new []
+        {
+            new [] { false, false, false },
+            new [] { true, false, false },
+            new [] { true, false, true }
+        });
+        var result = world.NextState();
+        Assert.True(result[1][1]);
+    }
+
+    [Fact(DisplayName = "does not reproduce with exactly two living neighbors")]
+    public void Test12()
+    {
+        var world = new World(new []
+        {
+            new [] { false, false, false },
+            new [] { true, false, false },
+            new [] { false, false, true }
+        });
+        var result = world.NextState();
+        Assert.False(result[1][1]);
+    }
+
 }
