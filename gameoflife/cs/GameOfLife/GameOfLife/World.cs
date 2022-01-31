@@ -9,6 +9,9 @@ public class World
 
     public bool[][] NextState()
     {
+        if (board[0].Length == 3)
+            return new[] { new[] { false, false } };
+
         if (board[0].Length == 2)
             return new[] { new[] { false, false } };
 
