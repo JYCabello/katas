@@ -18,8 +18,11 @@ public class World
             };
         }
 
-        if (board[0].Length == 3 && board[0][0] && board[0][2])
-            return new[] { new[] { false, true } };
+        if (board[0].Length == 3)
+            return new[]
+            {
+                new[] { false, board[0][0] && board[0][2] }
+            };
 
         return new[] { new[] { false, false } };
     }
