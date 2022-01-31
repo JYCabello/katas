@@ -25,4 +25,15 @@ public class WorldShould
         world.NextState();
         Assert.False(world.GetBoard()[0][1]);
     }
+
+    [Fact(DisplayName = "keeps a cell alive when it has two living neighbors")]
+    public void Test3()
+    {
+        var world = new World(new []
+        {
+            new [] { true, true, true }
+        });
+        world.NextState();
+        Assert.True(world.GetBoard()[0][1]);
+    }
 }
