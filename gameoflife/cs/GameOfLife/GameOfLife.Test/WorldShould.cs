@@ -71,4 +71,16 @@ public class WorldShould
         Assert.False(result[1][1]);
     }
 
+    [Fact(DisplayName = "keep alive a sustained cell in a second row")]
+    public void Test7()
+    {
+        var world = new World(new []
+        {
+            new [] { false, true, false },
+            new [] { false, true, true }
+        });
+        var result = world.NextState();
+        Assert.True(result[1][1]);
+    }
+
 }
