@@ -14,7 +14,7 @@ public class World
             return new[]
             {
                 new[] { false, false, false },
-                new[] { false, false, false }
+                new[] { false, board[0][1], false }
             };
         }
 
