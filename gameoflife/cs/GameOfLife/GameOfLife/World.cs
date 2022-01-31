@@ -69,6 +69,9 @@ public class World
             if (neighbor)
                 count++;
 
+        if (!board[y][x])
+            return count == 3;
+
         return count is < 4 and > 1;
     }
 }
