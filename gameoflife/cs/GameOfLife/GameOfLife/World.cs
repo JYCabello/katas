@@ -22,7 +22,7 @@ public class World
         {
             for (var x = 0; x < newBoardWidth; x++)
             {
-                newBoard[y][x] = WillBeAlive(GetNeighbors(x, y));
+                newBoard[y][x] = WillBeAlive(x, y);
             }
         }
 
@@ -60,8 +60,10 @@ public class World
         return neigbors.ToArray();
     }
 
-    public bool WillBeAlive(bool[] neighbors)
+    public bool WillBeAlive(int x, int y)
     {
+        var neighbors = GetNeighbors(x, y);
+
         var count = 0;
         foreach (var neighbor in neighbors)
             if (neighbor)
