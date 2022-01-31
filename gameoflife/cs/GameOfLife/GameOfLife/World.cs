@@ -9,28 +9,24 @@ public class World
 
     public bool[][] NextState()
     {
-        if (board.Length > 2)
-            return new[]
-            {
-                new []{ WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)),WillBeAlive(GetNeighbors(2, 0)) },
-                new []{ WillBeAlive(GetNeighbors(0, 1)) ,WillBeAlive(GetNeighbors(1, 1)),WillBeAlive(GetNeighbors(2, 1)) },
-                new []{ WillBeAlive(GetNeighbors(0, 2)) ,WillBeAlive(GetNeighbors(1, 2)),WillBeAlive(GetNeighbors(2, 2)) }
-            };
+        var newBoardHeight = board.Length;
+        var newBoardWidth = board[0].Length;
 
-        if (board.Length > 1)
-            return new[]
-            {
-                new [] { WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)), WillBeAlive(GetNeighbors(2, 0)) },
-                new [] { WillBeAlive(GetNeighbors(0, 1)) ,WillBeAlive(GetNeighbors(1, 1)), WillBeAlive(GetNeighbors(2, 1)) }
-            };
+        var newBoard = new bool[newBoardHeight][];
+        for (var y = 0; y < newBoardHeight; y++)
+        {
+            newBoard[y] = new bool[newBoardWidth];
+        }
 
-        if (board[0].Length == 3)
-            return new[]
+        for (var y = 0; y < newBoardHeight; y++)
+        {
+            for (var x = 0; x < newBoardWidth; x++)
             {
-                new [] { WillBeAlive(GetNeighbors(0, 0)) ,WillBeAlive(GetNeighbors(1, 0)), WillBeAlive(GetNeighbors(2, 0)) }
-            };
+                newBoard[y][x] = WillBeAlive(GetNeighbors(x, y));
+            }
+        }
 
-        return new[] { new[] { false, false } };
+        return newBoard;
     }
 
     public bool[] GetNeighbors(int x, int y)
