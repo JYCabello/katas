@@ -13,7 +13,11 @@ public class World
     public bool[][] GetBoard()
     {
         if (_bools[0].Length == 3)
+        {
+            if (!_bools[0][0])
+                return new[] { new[] { false, false } };
             return new[] { new[] { false, true } };
+        }
 
         if (_bools[0].Length == 2)
             return new[] { new[] { false, false } };

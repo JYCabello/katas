@@ -36,4 +36,15 @@ public class WorldShould
         world.NextState();
         Assert.True(world.GetBoard()[0][1]);
     }
+
+    [Fact(DisplayName = "kill a cell when it has two dead neighbors")]
+    public void Test4()
+    {
+        var world = new World(new []
+        {
+            new [] { false, true, false }
+        });
+        world.NextState();
+        Assert.False(world.GetBoard()[0][1]);
+    }
 }
