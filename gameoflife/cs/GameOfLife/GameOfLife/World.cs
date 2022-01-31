@@ -3,10 +3,8 @@
 public class World
 {
     private readonly bool[][] board;
-    public World(bool[][] board)
-    {
+    public World(bool[][] board) =>
         this.board = board;
-    }
 
     public void NextState() { }
 
