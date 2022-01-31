@@ -9,12 +9,10 @@ public class World
 
     public bool[][] NextState()
     {
-        if (board[0].Length == 3)
-        {
-            if (board[0][0])
-                return new[] { new[] { false, true } };
+        if (board[0].Length == 3 && board[0][0])
+            return new[] { new[] { false, true } };
+        if (board[0].Length == 3 && !board[0][0])
             return new[] { new[] { false, false } };
-        }
 
         if (board[0].Length == 2)
             return new[] { new[] { false, false } };
