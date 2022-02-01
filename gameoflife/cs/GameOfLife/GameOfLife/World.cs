@@ -9,7 +9,7 @@ public class World
 
     public Board NextState()
     {
-        var newBoard = new bool[board2.Height,board2.Width];
+        var newBoard = new bool[board2.Height, board2.Width];
 
         for (var y = 0; y < board2.Height; y++)
         for (var x = 0; x < board2.Width; x++)
