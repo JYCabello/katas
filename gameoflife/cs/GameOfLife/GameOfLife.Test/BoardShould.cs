@@ -82,4 +82,17 @@ public class BoardShould
         Assert.Equal(3, result.Length);
         Assert.Equal(1, result.Count(b => b));
     }
+
+    [Fact(DisplayName = "get bottom right neighbor")]
+    public void Test08()
+    {
+        var board = new Board(new[,]
+        {
+            { false, false },
+            { false, true }
+        });
+        var result = board.GetNeighbors(0, 0);
+        Assert.Equal(3, result.Length);
+        Assert.Equal(1, result.Count(b => b));
+    }
 }
