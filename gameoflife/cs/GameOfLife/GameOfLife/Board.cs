@@ -33,6 +33,9 @@ public class Board
         if (!isOnLeftBorder && !isOnTopBorder)
             neigbors.Add(board[y - 1, x - 1]);
 
+        if (!isOnRightBorder && !isOnTopBorder)
+            neigbors.Add(board[y - 1, x + 1]);
+
         return neigbors.ToArray();
     }
 }
