@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Linq;
+using Xunit;
 
 namespace GameOfLife.Test;
 
@@ -54,5 +55,17 @@ public class BoardShould
         var result = board.GetNeighbors(1, 0);
         Assert.Single(result);
         Assert.True(result[0]);
+    }
+
+    [Fact(DisplayName = "get top left neighbor")]
+    public void Test06()
+    {
+        var board = new Board(new[,]
+        {
+            { true, false },
+            { false, false }
+        });
+        var result = board.GetNeighbors(1, 1);
+        Assert.Equal(1, result.Count(b => b));
     }
 }
