@@ -147,4 +147,21 @@ public class WorldShould
         Assert.False(result.IsAlive(1, 1));
     }
 
+    [Fact(DisplayName = "keeps history")]
+    public void Test13()
+    {
+        var world = new World(new [,]
+        {
+            { true, false, true, false, false },
+            { false, true, false, false, false },
+            { true, false, true, false, false },
+            { false, false, false, true, false },
+            { false, false, false, false, true }
+        });
+        var result = world.NextState();
+        Assert.False(result.IsAlive(1, 1));
+        Assert.False(result.IsAlive(3, 2));
+        var secondResult = world.NextState();
+        Assert.True(secondResult.IsAlive(3, 2));
+    }
 }
