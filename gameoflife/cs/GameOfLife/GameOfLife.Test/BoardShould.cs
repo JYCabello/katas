@@ -42,4 +42,17 @@ public class BoardShould
         Assert.Single(result);
         Assert.False(result[0]);
     }
+
+    [Fact(DisplayName = "get one neighbor above")]
+    public void Test05()
+    {
+        var board = new Board(new[,]
+        {
+            { true },
+            { false }
+        });
+        var result = board.GetNeighbors(1, 0);
+        Assert.Single(result);
+        Assert.True(result[0]);
+    }
 }

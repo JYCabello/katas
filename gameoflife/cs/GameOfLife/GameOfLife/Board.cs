@@ -16,6 +16,7 @@ public class Board
         var isOnRightBorder = width == x + 1;
         var isOnLeftBorder = x == 0;
         var isOnBottomBorder = height == y + 1;
+        var isOnTopBorder = y == 0;
 
         if (!isOnRightBorder)
             neigbors.Add(board[y, x + 1]);
@@ -25,6 +26,9 @@ public class Board
 
         if (!isOnBottomBorder)
             neigbors.Add(board[y + 1, x]);
+
+        if (!isOnTopBorder)
+            neigbors.Add(board[y - 1, x]);
 
         return neigbors.ToArray();
     }
