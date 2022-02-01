@@ -12,7 +12,7 @@ public class WorldShould
             { true }
         });
         var result = world.NextState();
-        Assert.False(result[0][0]);
+        Assert.False(result.IsAlive(0, 0));
     }
 
     [Fact(DisplayName = "kill an isolated cell")]
@@ -23,7 +23,7 @@ public class WorldShould
             { true, true }
         });
         var result = world.NextState();
-        Assert.False(result[0][1]);
+        Assert.False(result.IsAlive(0, 1));
     }
 
     [Fact(DisplayName = "kill an isolated cell in a longer row")]
@@ -34,7 +34,7 @@ public class WorldShould
             { false, true, false }
         });
         var result = world.NextState();
-        Assert.False(result[0][1]);
+        Assert.False(result.IsAlive(0, 1));
     }
 
     [Fact(DisplayName = "keep a sustained cell in a longer row alive")]
@@ -45,7 +45,7 @@ public class WorldShould
             { true, true, true }
         });
         var result = world.NextState();
-        Assert.True(result[0][1]);
+        Assert.True(result.IsAlive(0, 1));
     }
 
     [Fact(DisplayName = "kill an isolated cell in a longer row with a dead neighbor")]
@@ -56,7 +56,7 @@ public class WorldShould
             { true, true, false }
         });
         var result = world.NextState();
-        Assert.False(result[0][1]);
+        Assert.False(result.IsAlive(0, 1));
     }
 
     [Fact(DisplayName = "kill an isolated cell in a second row with no living neighbors")]
@@ -68,7 +68,7 @@ public class WorldShould
             { false, true, false }
         });
         var result = world.NextState();
-        Assert.False(result[1][1]);
+        Assert.False(result.IsAlive(1, 1));
     }
 
     [Fact(DisplayName = "keep alive a sustained cell in a second row")]
@@ -80,7 +80,7 @@ public class WorldShould
             { false, true, true }
         });
         var result = world.NextState();
-        Assert.True(result[1][1]);
+        Assert.True(result.IsAlive(1, 1));
     }
 
     [Fact(DisplayName = "kills an overpopulated cell in a second row")]
@@ -92,7 +92,7 @@ public class WorldShould
             { true, true, true }
         });
         var result = world.NextState();
-        Assert.False(result[1][1]);
+        Assert.False(result.IsAlive(1, 1));
     }
 
     [Fact(DisplayName = "kills an overpopulated cell in a second row counting on the third")]
@@ -105,7 +105,7 @@ public class WorldShould
             { true, true, true }
         });
         var result = world.NextState();
-        Assert.False(result[1][1]);
+        Assert.False(result.IsAlive(1, 1));
     }
 
     [Fact(DisplayName = "kills an overpopulated cell in the third row")]
@@ -118,7 +118,7 @@ public class WorldShould
             { true, true, true }
         });
         var result = world.NextState();
-        Assert.False(result[2][1]);
+        Assert.False(result.IsAlive(2, 1));
     }
 
     [Fact(DisplayName = "reproduces with exactly three living neighbors")]
@@ -131,7 +131,7 @@ public class WorldShould
             { true, false, true }
         });
         var result = world.NextState();
-        Assert.True(result[1][1]);
+        Assert.True(result.IsAlive(1, 1));
     }
 
     [Fact(DisplayName = "does not reproduce with exactly two living neighbors")]
@@ -144,7 +144,7 @@ public class WorldShould
             { false, false, true }
         });
         var result = world.NextState();
-        Assert.False(result[1][1]);
+        Assert.False(result.IsAlive(1, 1));
     }
 
 }

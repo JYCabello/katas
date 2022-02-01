@@ -7,17 +7,15 @@ public class World
     public World(bool[,] board) =>
         board2 = new Board(board);
 
-    public bool[][] NextState()
+    public Board NextState()
     {
-        var newBoard = new bool[board2.Height][];
-        for (var y = 0; y < board2.Height; y++)
-            newBoard[y] = new bool[board2.Width];
+        var newBoard = new bool[board2.Height,board2.Width];
 
         for (var y = 0; y < board2.Height; y++)
         for (var x = 0; x < board2.Width; x++)
-            newBoard[y][x] = WillBeAlive(x, y);
+            newBoard[y, x] = WillBeAlive(x, y);
 
-        return newBoard;
+        return new Board(newBoard);
     }
 
     public bool WillBeAlive(int x, int y)
