@@ -4,18 +4,8 @@ public class World
 {
     private readonly Board board2;
 
-    public World(bool[][] board) =>
-        board2 = new Board(Deleteme(board));
-
-    private static bool[,] Deleteme(bool[][] oldBoard)
-    {
-        var result = new bool[oldBoard.Length, oldBoard[0].Length];
-        for (var y = 0; y < oldBoard.Length; y++)
-        for (var x = 0; x < oldBoard[0].Length; x++)
-            result[y, x] = oldBoard[y][x];
-
-        return result;
-    }
+    public World(bool[,] board) =>
+        board2 = new Board(board);
 
     public bool[][] NextState()
     {
