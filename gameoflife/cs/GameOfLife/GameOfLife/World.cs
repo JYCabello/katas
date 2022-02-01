@@ -2,76 +2,44 @@
 
 public class World
 {
-    private readonly bool[][] board;
+    private readonly Board board2;
 
-    public World(bool[][] board)
+    public World(bool[][] board) =>
+        board2 = new Board(Deleteme(board));
+
+    private static bool[,] Deleteme(bool[][] oldBoard)
     {
-        this.board = board;
+        var result = new bool[oldBoard.Length, oldBoard[0].Length];
+        for (var y = 0; y < oldBoard.Length; y++)
+        for (var x = 0; x < oldBoard[0].Length; x++)
+            result[y, x] = oldBoard[y][x];
+
+        return result;
     }
 
     public bool[][] NextState()
     {
-        var newBoardHeight = board.Length;
-        var newBoardWidth = board[0].Length;
+        var newBoard = new bool[board2.Height][];
+        for (var y = 0; y < board2.Height; y++)
+            newBoard[y] = new bool[board2.Width];
 
-        var newBoard = new bool[newBoardHeight][];
-        for (var y = 0; y < newBoardHeight; y++)
-        {
-            newBoard[y] = new bool[newBoardWidth];
-        }
-
-        for (var y = 0; y < newBoardHeight; y++)
-        {
-            for (var x = 0; x < newBoardWidth; x++)
-            {
-                newBoard[y][x] = WillBeAlive(x, y);
-            }
-        }
+        for (var y = 0; y < board2.Height; y++)
+        for (var x = 0; x < board2.Width; x++)
+            newBoard[y][x] = WillBeAlive(x, y);
 
         return newBoard;
     }
 
-    public bool[] GetNeighbors(int x, int y)
-    {
-        var neigbors = new List<bool>();
-
-        if (x > 0 && y > 0)
-            neigbors.Add(board[y - 1][x - 1]);
-
-        if (y > 0)
-            neigbors.Add(board[y - 1][x]);
-
-        if (y > 0 && board[y - 1].Length > x + 1)
-            neigbors.Add(board[y - 1][x + 1]);
-
-        if (board[y].Length > x + 1)
-            neigbors.Add(board[y][x + 1]);
-
-        if (board.Length > y + 1 && board[y].Length > x + 1)
-            neigbors.Add(board[y + 1][x + 1]);
-
-        if (board.Length > y + 1)
-            neigbors.Add(board[y + 1][x]);
-
-        if (board.Length > y + 1 && x > 0)
-            neigbors.Add(board[y + 1][x - 1]);
-
-        if (x > 0)
-            neigbors.Add(board[y][x - 1]);
-
-        return neigbors.ToArray();
-    }
-
     public bool WillBeAlive(int x, int y)
     {
-        var neighbors = GetNeighbors(x, y);
+        var neighbors = board2.GetNeighbors(y, x);
 
         var count = 0;
         foreach (var neighbor in neighbors)
             if (neighbor)
                 count++;
 
-        if (!board[y][x])
+        if (!board2.IsAlive(y, x))
             return count == 3;
 
         return count is < 4 and > 1;

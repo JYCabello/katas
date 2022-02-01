@@ -4,6 +4,11 @@ public class Board
 {
     private readonly bool[,] board;
 
+    public int Height => board.GetLength(0);
+    public int Width => board.GetLength(1);
+
+    public bool IsAlive(int y, int x) => board[y, x];
+
     public Board(bool[,] board) =>
         this.board = board;
 
