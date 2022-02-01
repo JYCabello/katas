@@ -13,10 +13,13 @@ public class Board
         var neigbors = new List<bool>();
 
         var isOnRightBorder = width == x + 1;
+        var isOnLeftBorder = x == 0;
 
         if (!isOnRightBorder)
             neigbors.Add(board[y, x + 1]);
 
+        if (!isOnLeftBorder)
+            neigbors.Add(board[y, x - 1]);
 
         return neigbors.ToArray();
     }
