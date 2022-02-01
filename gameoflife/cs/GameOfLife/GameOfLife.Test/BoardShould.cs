@@ -66,6 +66,20 @@ public class BoardShould
             { false, false }
         });
         var result = board.GetNeighbors(1, 1);
+        Assert.Equal(3, result.Length);
+        Assert.Equal(1, result.Count(b => b));
+    }
+
+    [Fact(DisplayName = "get top right neighbor")]
+    public void Test07()
+    {
+        var board = new Board(new[,]
+        {
+            { false, true },
+            { false, false }
+        });
+        var result = board.GetNeighbors(1, 0);
+        Assert.Equal(3, result.Length);
         Assert.Equal(1, result.Count(b => b));
     }
 }
