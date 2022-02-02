@@ -31,6 +31,6 @@ public class World
         return livingNeighbors is < 4 and > 1;
     }
 
-    public void Process(Action<bool[,], Board> action) =>
+    public void Process(Action<Board> action) =>
         board.Process(action);
 }

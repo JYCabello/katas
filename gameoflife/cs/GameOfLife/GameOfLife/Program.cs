@@ -11,12 +11,12 @@ var world = new World(new [,]
     { false, false, false, false, true }
 });
 
-void Render(bool[,] grid, Board board)
+void Render(Board board)
 {
     for (var y = 0; y < board.Height; y++)
     {
         for (var x = 0; x < board.Width; x++)
-            Console.Write(grid[x, y] ? "██" : "  ");
+            Console.Write(board.IsAlive(x, y) ? "██" : "  ");
 
         Console.WriteLine();
     }
