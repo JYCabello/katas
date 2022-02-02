@@ -23,14 +23,14 @@ public class World
     {
         var neighbors = board.GetNeighbors(y, x);
 
-        var count = 0;
+        var livingNeighbors = 0;
         foreach (var neighbor in neighbors)
             if (neighbor)
-                count++;
+                livingNeighbors++;
 
         if (!board.IsAlive(y, x))
-            return count == 3;
+            return livingNeighbors == 3;
 
-        return count is < 4 and > 1;
+        return livingNeighbors is < 4 and > 1;
     }
 }
