@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Text;
 using GameOfLife;
 
 var world = new World(new [,]
@@ -13,13 +14,15 @@ var world = new World(new [,]
 
 void Render(Board board)
 {
+    var output = new StringBuilder();
     for (var y = 0; y < board.Height; y++)
     {
         for (var x = 0; x < board.Width; x++)
-            Console.Write(board.IsAlive(x, y) ? "██" : "  ");
+            output.Append(board.IsAlive(x, y) ? "██" : "  ");
 
-        Console.WriteLine();
+        output.Append(Environment.NewLine);
     }
+    Console.Write(output.ToString());
 }
 
 while (true)
