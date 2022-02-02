@@ -49,4 +49,7 @@ public class Board
 
         return neigbors.ToArray();
     }
+
+    public void Process(Action<bool[,], Board> action) =>
+        action(board, this);
 }
