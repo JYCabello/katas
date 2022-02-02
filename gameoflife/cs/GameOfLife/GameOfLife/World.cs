@@ -13,20 +13,17 @@ public class World
 
         for (var y = 0; y < board.Height; y++)
         for (var x = 0; x < board.Width; x++)
-            newBoard[y, x] = WillBeAlive(x, y);
+            newBoard[y, x] = WillBeAlive(y, x);
 
         board = new Board(newBoard);
         return board;
     }
 
-    public bool WillBeAlive(int x, int y)
+    public bool WillBeAlive(int y, int x)
     {
         var neighbors = board.GetNeighbors(y, x);
 
-        var livingNeighbors = 0;
-        foreach (var neighbor in neighbors)
-            if (neighbor)
-                livingNeighbors++;
+        var livingNeighbors = neighbors.Count(b => b);
 
         if (!board.IsAlive(y, x))
             return livingNeighbors == 3;
