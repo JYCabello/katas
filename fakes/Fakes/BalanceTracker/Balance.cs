@@ -2,7 +2,7 @@
 
 public class Balance
 {
-    public Balance(UserInterface userInterface)
+    public Balance(IUserInterface userInterface)
     {
         throw new NotImplementedException();
     }

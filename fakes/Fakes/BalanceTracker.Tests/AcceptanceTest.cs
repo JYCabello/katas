@@ -4,7 +4,7 @@ namespace BalanceTracker.Tests;
 
 public class AcceptanceTest
 {
-    [Fact]
+    [Fact(DisplayName = "Should accept amounts")]
     public void Test1()
     {
         var userInterface = new UserInterface();
