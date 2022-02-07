@@ -8,5 +8,5 @@ public interface IUserInterface
 public class UserInterface : IUserInterface
 {
     public void Print(string output) =>
-        throw new NotImplementedException();
+        Console.WriteLine(output);
 }
