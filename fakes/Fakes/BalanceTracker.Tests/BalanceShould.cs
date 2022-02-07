@@ -19,7 +19,6 @@ public class MockUserInterface : IUserInterface
 {
     public string Output { get; private set; } = string.Empty;
 
-
     public void Print(string output) =>
         Output = output;
 }

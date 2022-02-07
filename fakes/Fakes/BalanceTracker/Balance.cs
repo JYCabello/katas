@@ -2,18 +2,15 @@
 
 public class Balance
 {
-    public Balance(IUserInterface userInterface)
-    {
-        throw new NotImplementedException();
-    }
+    private readonly IUserInterface userInterface;
+    private int balance = 0;
 
-    public void Append(int amount)
-    {
-        throw new NotImplementedException();
-    }
+    public Balance(IUserInterface userInterface) =>
+        this.userInterface = userInterface;
 
-    public void Print()
-    {
-        throw new NotImplementedException();
-    }
+    public void Append(int amount) =>
+        balance += amount;
+
+    public void Print() =>
+        userInterface.Print(balance.ToString());
 }
